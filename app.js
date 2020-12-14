@@ -1,9 +1,11 @@
-const fs = require("fs");
+import express from "express";
+import { readFile } from "fs/promises";
+import path from "path";
 
-const express = require("express");
 const app = express();
-
-const todos = JSON.parse(fs.readFileSync(`${__dirname}/data/todos.json`));
+// __dirname is not defined in REPL(shell exe ) files in v-14 so user import.meta.url
+// const todos = JSON.parse(await readFile(`./data/todos.json`)); => like this relative path or
+const todos = JSON.parse(await readFile(`${process.cwd()}/data/todos.json`));
 
 const port = 3001;
 app.listen(port, () => {
