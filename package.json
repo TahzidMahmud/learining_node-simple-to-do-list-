@@ -1,0 +1,26 @@
+{
+  "name": "learining_node-simple-to-do-list-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    
+    "start": "nodemon app.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TahzidMahmud/learining_node-simple-to-do-list-.git"
+  },
+  "author": "tahzid_shuvo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TahzidMahmud/learining_node-simple-to-do-list-/issues"
+  },
+  "homepage": "https://github.com/TahzidMahmud/learining_node-simple-to-do-list-#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
