@@ -1,6 +1,7 @@
 import express from "express";
 import { readFile, writeFile } from "fs/promises";
-import path from "path";
+import morgan from "morgan";
+import cors from "cors";
 
 const app = express();
 // __dirname is not defined in REPL(shell exe ) files in v-14 so user import.meta.url
@@ -12,9 +13,11 @@ app.listen(port, () => {
   console.log(`express server runnig at http://localhost:${port}`);
 });
 
+app.use(cors());
 //middlewares
 
 app.use(express.json());
+app.use(morgan("dev"));
 
 app.get("/todos", (req, res) => {
   //   res.status(200).send("i am runnig from nodemon");
@@ -25,7 +28,6 @@ app.get("/todos", (req, res) => {
   });
 });
 app.post("/todos", (req, res) => {
-  console.log(req.body);
   const newId = todos.length + 1;
   const body = req.body;
   const newTask = Object.assign({ id: newId }, body);
